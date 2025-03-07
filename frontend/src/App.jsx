@@ -5,12 +5,14 @@ import LoginPage from "./components/pages/LoginPage/LoginPage.jsx";
 import SignupPage from "./components/pages/SignupPage/SignupPage.jsx";
 import SettingsPage from "./components/pages/SettingsPage/SettingsPage.jsx";
 import ProfilePage from "./components/pages/ProfilePage/ProfilePage.jsx";
-import { useAuthStore } from "./components/store/useAuthStore.js";
+import { useAuthStore } from "./store/useAuthStore.js";
 import { useEffect } from "react";
 import { Toaster } from "react-hot-toast";
+import { userThemeStore } from "./store/useThemeStore.js";
 
 function App() {
   const { authUser, checkAuth, isCheckingAuth } = useAuthStore();
+  const { theme } = userThemeStore();
 
   useEffect(() => {
     checkAuth();
@@ -22,7 +24,7 @@ function App() {
     return <div>Loading...</div>;
   }
   return (
-    <div>
+    <div data-theme={theme}>
       <Navbar />
       <Routes>
         <Route

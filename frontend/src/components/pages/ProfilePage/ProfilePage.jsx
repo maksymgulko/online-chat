@@ -1,4 +1,4 @@
-import { useAuthStore } from "../../store/useAuthStore.js";
+import { useAuthStore } from "../../../store/useAuthStore.js";
 import { Camera, Mail, User } from "lucide-react";
 import { useState } from "react";
 
@@ -43,7 +43,9 @@ const ProfilePage = () => {
                   bg-base-content hover:scale-105
                   p-2 rounded-full cursor-pointer 
                   transition-all duration-200
-                  ${isUpdatingProfile ? "animate-pulse pointer-events-none" : ""}
+                  ${
+                    isUpdatingProfile ? "animate-pulse pointer-events-none" : ""
+                  }
                 `}
               >
                 <Camera className="w-5 h-5 text-base-200" />

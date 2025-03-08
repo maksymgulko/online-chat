@@ -5,10 +5,11 @@ import { connectDB } from "./lib/db.js";
 import cookieParser from "cookie-parser";
 import messageRoute from "./routes/message.route.js";
 import cors from "cors";
+import { app, server } from "./lib/socket.js";
 
 dotenv.config();
 
-const app = express();
+// const app = express();
 
 const PORT = process.env.PORT || 5001;
 
@@ -22,9 +23,9 @@ app.use(express.urlencoded({ extended: true, limit: "5mb" }));
 
 app.use("/api/auth", authRoutes);
 
-app.use("/api/message", messageRoute);
+app.use("/api/messages", messageRoute);
 
-app.listen(PORT, () => {
+server.listen(PORT, () => {
   console.log(`server is on port ${PORT}`);
   connectDB();
 });

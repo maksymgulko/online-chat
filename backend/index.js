@@ -9,7 +9,7 @@ import { app, server } from "./lib/socket.js";
 
 import path from "path";
 
-const _dirname = path.resolve();
+const __dirname = path.resolve();
 
 dotenv.config();
 
